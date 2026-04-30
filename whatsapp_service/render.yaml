@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: titan-whatsapp-service
+    runtime: node
+    rootDir: .
+    buildCommand: npm install
+    startCommand: node index.js
+    plan: free
+    envVars:
+      - key: WA_NUMBER_ID
+        value: main
+      - key: PYTHON_API_URL
+        sync: false          # set this in Render dashboard → your HF space URL
+      - key: INTERNAL_KEY
+        sync: false          # set this in Render dashboard → must match Python backend
+      - key: NODE_ENV
+        value: production

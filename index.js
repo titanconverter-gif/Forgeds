@@ -135,7 +135,10 @@ async function connectWA() {
           number_id: NUMBER_ID,
           phone: myNumber,
         }, { headers: { "x-internal-key": INTERNAL_KEY }, timeout: 5000 });
-      } catch (_) {}
+      } catch (err) {
+        console.error(`❌ [${NUMBER_ID}] Failed to notify Python backend at ${PYTHON_API}: ${err.message}`);
+        console.error(`   → Make sure PYTHON_API_URL env var is set in Render dashboard (e.g. https://your-hf-space.hf.space)`);
+      }
     }
 
     if (connection === "close") {

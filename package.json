@@ -1,0 +1,20 @@
+{
+  "name": "titan-whatsapp-service",
+  "version": "1.0.0",
+  "description": "Baileys WA sender for Titan Forger",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "pino": "^9.3.1",
+    "qrcode": "^1.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

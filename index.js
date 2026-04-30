@@ -19,7 +19,6 @@ const {
   useMultiFileAuthState,
   DisconnectReason,
   fetchLatestBaileysVersion,
-  makeInMemoryStore,
   jidNormalizedUser,
 } = require("@whiskeysockets/baileys");
 
@@ -45,7 +44,6 @@ let myNumber    = null;
 let webhookUrl  = `${PYTHON_API}/whatsapp/incoming`;
 
 const logger = pino({ level: "silent" });   // silence Baileys noise
-const store  = makeInMemoryStore({ logger });
 
 // ── Express app ───────────────────────────────────────
 const app = express();
@@ -114,7 +112,6 @@ async function connectWA() {
     markOnlineOnConnect: false,
   });
 
-  store.bind(sock.ev);
 
   // ── QR / connection events ─────────────────────────
   sock.ev.on("connection.update", async (update) => {
